@@ -1,0 +1,11 @@
+{
+  "name": "prawo-pl",
+  "displayName": "Prawo polskie",
+  "version": "0.1.0",
+  "description": "Teksty polskich ustaw z historią zmian przepisów: wyszukiwanie, odczyt artykułów i brzmienie na dzień. Bezpłatne, bez logowania.",
+  "author": { "name": "Mateusz Gugałka", "url": "https://polskie-prawo.app" },
+  "homepage": "https://polskie-prawo.app/docs",
+  "repository": "https://github.com/mattttttttttyyyy/prawo-pl-plugin",
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": ["prawo", "polska", "ustawy", "kodeksy", "legal", "poland"]
+}

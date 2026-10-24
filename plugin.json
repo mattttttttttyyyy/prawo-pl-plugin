@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "prawo-pl",
+  "version": "0.1.0",
+  "description": "Teksty polskich ustaw z historią zmian przepisów: wyszukiwanie, odczyt artykułów i brzmienie na dzień.",
+  "author": { "name": "Mateusz Gugałka", "email": "mgugalka@gmail.com", "url": "https://polskie-prawo.app" },
+  "homepage": "https://polskie-prawo.app/docs",
+  "repository": "https://github.com/mattttttttttyyyy/prawo-pl-plugin",
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": ["prawo", "polska", "ustawy", "kodeksy"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Prawo polskie",
+        "shortDescription": "Polskie ustawy i ich zmiany",
+        "longDescription": "Przeszukuj obowiązujące przepisy polskich kodeksów i ustaw, czytaj pełne artykuły i sprawdzaj, jak przepis brzmiał w wybranym dniu. Każda odpowiedź podaje numer artykułu, akt, stan tekstu i późniejsze zmiany. Teksty pochodzą z oficjalnego API Sejmu (ELI). To informacja, nie porada prawna.",
+        "developerName": "Mateusz Gugałka",
+        "category": "Research",
+        "capabilities": ["Read"],
+        "websiteURL": "https://polskie-prawo.app",
+        "privacyPolicyURL": "https://polskie-prawo.app/privacy",
+        "termsOfServiceURL": "https://polskie-prawo.app/terms",
+        "defaultPrompt": [
+          "Ile dni urlopu wypoczynkowego przysługuje pracownikowi? Podaj artykuł.",
+          "Pokaż art. 415 Kodeksu cywilnego."
+        ],
+        "brandColor": "#1F3A5F",
+        "composerIcon": "./assets/icon.svg",
+        "logo": "./assets/logo.svg"
+      }
+    }
+  }
+}

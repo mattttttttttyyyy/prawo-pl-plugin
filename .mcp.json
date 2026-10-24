@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "prawo-pl": {
+      "type": "http",
+      "url": "https://polskie-prawo.app/mcp"
+    }
+  }
+}

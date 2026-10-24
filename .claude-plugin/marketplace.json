@@ -1,0 +1,14 @@
+{
+  "name": "prawo",
+  "description": "Wtyczki do pracy z tekstami polskiego prawa.",
+  "owner": {
+    "name": "Mateusz Gugałka"
+  },
+  "plugins": [
+    {
+      "name": "prawo-pl",
+      "source": "./",
+      "description": "Teksty polskich ustaw z historią zmian przepisów."
+    }
+  ]
+}
