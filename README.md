@@ -4,8 +4,8 @@ Wtyczka podłącza asystenta AI do serwera MCP z tekstami polskich ustaw i histo
 
 ## Co potrafi
 
-- `search_law`: wyszukiwanie obowiązujących przepisów po znaczeniu, słowach kluczowych lub adresie („art. 415 KC”).
-- `get_provision`: pełny tekst przepisu, opcjonalnie na wskazany dzień.
+- `search_law`: wyszukiwanie obowiązujących przepisów po znaczeniu i słowach kluczowych; najlepiej działa zapytanie językiem ustawy, a inne ujęcia problemu można podać w `queries`.
+- `get_provision`: pełny tekst przepisu po numerze, opcjonalnie na wskazany dzień; akt skrótem („KP”, „k.p.c.”), nazwą („Kodeks pracy”) albo w adresie („art. 41 k.p.”).
 - `get_provision_history`: zmiany przepisu w czasie, z różnicami.
 - `list_acts`: lista zaindeksowanych aktów i stan ich tekstów.
 
