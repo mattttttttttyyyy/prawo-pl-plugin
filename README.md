@@ -1,6 +1,6 @@
 # Prawo polskie
 
-Wtyczka podłącza asystenta AI do serwera MCP z tekstami polskich ustaw i historią zmian przepisów (https://polskie-prawo.app). Usługa jest bezpłatna i nie wymaga konta.
+Wtyczka podłącza asystenta AI do serwera MCP z tekstami polskich ustaw i historią zmian przepisów (<https://polskie-prawo.app>). Usługa jest bezpłatna i nie wymaga konta.
 
 ## Co potrafi
 
@@ -26,15 +26,16 @@ Albo samo połączenie z serwerem, bez wtyczki:
 claude mcp add --transport http prawo-pl https://polskie-prawo.app/mcp
 ```
 
-ChatGPT i Claude w przeglądarce: dodaj własny konektor z adresem `https://polskie-prawo.app/mcp`. Instrukcja: https://polskie-prawo.app/docs.
+ChatGPT i Claude w przeglądarce: dodaj własny konektor z adresem <https://polskie-prawo.app/mcp> (instrukcja: <https://polskie-prawo.app/docs>).
 
 ## Dane, prywatność i ograniczenia
 
 - Teksty pochodzą z oficjalnego API Sejmu RP (ELI). Każda odpowiedź podaje stan tekstu i znane późniejsze zmiany.
 - To informacja, nie porada prawna. Brak wyniku nie oznacza, że przepis nie istnieje.
-- Serwer nie wymaga logowania, nie zapisuje treści zapytań ani adresów IP w swojej bazie. Przy wyszukiwaniu znaczeniowym tekst frazy trafia do Cloudflare Workers AI. Szczegóły: https://polskie-prawo.app/privacy.
-- Wtyczka nie uruchamia żadnego kodu na Twoim komputerze: łączy się wyłącznie z `https://polskie-prawo.app/mcp`.
-- Regulamin: https://polskie-prawo.app/terms. Pomoc: https://polskie-prawo.app/support.
+- Serwer nie wymaga logowania, nie zapisuje treści zapytań ani adresów IP w swojej bazie. Przy wyszukiwaniu znaczeniowym tekst frazy trafia do Cloudflare Workers AI. Szczegóły: <https://polskie-prawo.app/privacy>
+- Wtyczka nie uruchamia żadnego kodu na Twoim komputerze: łączy się wyłącznie z <https://polskie-prawo.app/mcp>
+- Regulamin: <https://polskie-prawo.app/terms>
+- Pomoc: <https://polskie-prawo.app/support>
 
 ## Licencja
 

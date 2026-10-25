@@ -3,9 +3,23 @@
   "displayName": "Prawo polskie",
   "version": "0.1.0",
   "description": "Teksty polskich ustaw z historią zmian przepisów: wyszukiwanie, odczyt artykułów i brzmienie na dzień. Bezpłatne, bez logowania.",
-  "author": { "name": "Mateusz Gugałka", "url": "https://polskie-prawo.app" },
+  "author": {
+    "name": "Mateusz Gugałka",
+    "url": "https://polskie-prawo.app"
+  },
   "homepage": "https://polskie-prawo.app/docs",
   "repository": "https://github.com/mattttttttttyyyy/prawo-pl-plugin",
   "license": "SEE LICENSE IN LICENSE",
-  "keywords": ["prawo", "polska", "ustawy", "kodeksy", "legal", "poland"]
+  "keywords": [
+    "prawo",
+    "polska",
+    "ustawy",
+    "kodeksy",
+    "legal",
+    "poland"
+  ],
+  "privacyPolicyUrl": "https://polskie-prawo.app/privacy",
+  "termsOfServiceUrl": "https://polskie-prawo.app/terms",
+  "supportUrl": "https://polskie-prawo.app/support",
+  "documentationUrl": "https://polskie-prawo.app/docs"
 }
