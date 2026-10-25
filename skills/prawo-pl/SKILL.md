@@ -22,6 +22,7 @@ Wywołaj `get_provision` i sprawdź brzmienie, zanim je zacytujesz.
 Wywołaj `search_law` z zapytaniem językiem ustawy, a nie pytaniem użytkownika słowo w słowo.
 
 - Dobrze: `wypowiedzenie umowy o pracę w czasie usprawiedliwionej nieobecności`. Gorzej: `czy szef może mnie zwolnić na L4`.
+- Zamieniaj słowa potoczne na urzędowe, bo wyszukiwanie semantyczne słabo je łączy: „L4” → „niezdolność do pracy wskutek choroby”, „usprawiedliwiona nieobecność pracownika w pracy”, „szef” → „pracodawca”, „zwolnić z pracy” → „wypowiedzenie / rozwiązanie umowy o pracę”, „wypłata” → „wynagrodzenie za pracę”, „mandat” → „grzywna nałożona w drodze mandatu karnego”, „zabrać prawo jazdy” → „zatrzymanie prawa jazdy”.
 - Inne ujęcia tego samego problemu podaj w `queries` (do 2), np. `zakaz wypowiedzenia umowy o pracę`, `ochrona pracownika w czasie choroby`. To jedno wywołanie zamiast kilku.
 - Gdy wiesz, w którym akcie szukać, zawęź przez `acts`, np. `["KP"]`. Nazwa aktu w samym zapytaniu („w kodeksie pracy”, „VAT”) też zawęża wyniki.
 - Chcesz sprawdzić cytat z pamięci: umieść fragment w cudzysłowie, np. `„wyrządził drugiemu szkodę”`; zostanie wyszukany jako dokładna fraza.
