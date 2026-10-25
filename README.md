@@ -8,6 +8,7 @@ Wtyczka podłącza asystenta AI do serwera MCP z tekstami polskich ustaw i histo
 - `get_provision`: pełny tekst przepisu po numerze, opcjonalnie na wskazany dzień; akt skrótem („KP”, „k.p.c.”), nazwą („Kodeks pracy”) albo w adresie („art. 41 k.p.”).
 - `get_provision_history`: zmiany przepisu w czasie, z różnicami.
 - `list_acts`: lista zaindeksowanych aktów i stan ich tekstów.
+- `get_project_info`: opis projektu, źródła danych, strona i kontakt; temat `support` podaje informacje o dobrowolnym wsparciu na pytanie użytkownika.
 
 Wszystkie narzędzia są tylko do odczytu. Wtyczka zawiera też skill `prawo-pl`, który podpowiada asystentowi, jak cytować przepisy (artykuł, akt, stan tekstu, zastrzeżenia).
 
@@ -29,6 +30,8 @@ claude mcp add --transport http prawo-pl https://polskie-prawo.app/mcp
 ChatGPT i Claude w przeglądarce: dodaj własny konektor z adresem <https://polskie-prawo.app/mcp> (instrukcja: <https://polskie-prawo.app/docs>).
 
 ## Dane, prywatność i ograniczenia
+
+Historia pochodzi z dostępnych tekstów jednolitych. Daty stanów tekstu nie muszą być datami wejścia zmian w życie; wynik na wskazany dzień może być niepewny lub niedostępny. Do wyszukiwania wystarczają ogólne hasła prawne — nie przekazuj danych osobowych ani poufnych dokumentów sprawy.
 
 - Teksty pochodzą z oficjalnego API Sejmu RP (ELI). Każda odpowiedź podaje stan tekstu i znane późniejsze zmiany.
 - To informacja, nie porada prawna. Brak wyniku nie oznacza, że przepis nie istnieje.

@@ -1,32 +1,106 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "prawo-pl",
-  "version": "0.1.0",
-  "description": "Teksty polskich ustaw z historią zmian przepisów: wyszukiwanie, odczyt artykułów i brzmienie na dzień.",
-  "author": { "name": "Mateusz Gugałka", "email": "mgugalka@gmail.com", "url": "https://polskie-prawo.app" },
+  "version": "0.1.2",
+  "description": "Wyszukiwanie polskich przepisów i porównywanie dostępnych historycznych brzmień z oficjalnych tekstów ELI Sejmu.",
+  "author": {
+    "name": "Mateusz Gugałka",
+    "email": "mgugalka@gmail.com",
+    "url": "https://polskie-prawo.app"
+  },
   "homepage": "https://polskie-prawo.app/docs",
   "repository": "https://github.com/mattttttttttyyyy/prawo-pl-plugin",
   "license": "SEE LICENSE IN LICENSE",
-  "keywords": ["prawo", "polska", "ustawy", "kodeksy"],
+  "keywords": [
+    "prawo",
+    "polska",
+    "ustawy",
+    "kodeksy"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Prawo polskie",
         "shortDescription": "Polskie ustawy i ich zmiany",
-        "longDescription": "Przeszukuj obowiązujące przepisy polskich kodeksów i ustaw, czytaj pełne artykuły i sprawdzaj, jak przepis brzmiał w wybranym dniu. Każda odpowiedź podaje numer artykułu, akt, stan tekstu i późniejsze zmiany. Teksty pochodzą z oficjalnego API Sejmu (ELI). To informacja, nie porada prawna.",
+        "longDescription": "Wyszukuj przepisy zaindeksowanych polskich ustaw i kodeksów, odczytuj artykuły i porównuj ich dostępne historyczne brzmienia. Źródłem są teksty z oficjalnego API ELI Sejmu RP. Wyniki wskazują przepis, źródło, stan tekstu i znane późniejsze nowelizacje. Historia opiera się na kolejnych dostępnych tekstach jednolitych: dokładna data wejścia konkretnej zmiany w życie może być nieustalona, a brzmienie na wybrany dzień niepewne. Zakres obejmuje akty dostępne w bazie, nie całe prawo polskie. Narzędzie dostarcza informacji prawnej; nie zastępuje indywidualnej porady prawnika. Nie przekazuj danych osobowych ani poufnych opisów spraw.",
         "developerName": "Mateusz Gugałka",
-        "category": "Research",
-        "capabilities": ["Read"],
+        "category": "Education & Research",
+        "capabilities": [
+          "Read"
+        ],
         "websiteURL": "https://polskie-prawo.app",
         "privacyPolicyURL": "https://polskie-prawo.app/privacy",
         "termsOfServiceURL": "https://polskie-prawo.app/terms",
         "defaultPrompt": [
           "Ile dni urlopu wypoczynkowego przysługuje pracownikowi? Podaj artykuł.",
-          "Pokaż art. 415 Kodeksu cywilnego."
+          "Pokaż art. 415 Kodeksu cywilnego.",
+          "Jak zmieniał się art. 154 Kodeksu pracy w ostatnich 10 latach?"
         ],
         "brandColor": "#1F3A5F",
-        "composerIcon": "./assets/icon.svg",
-        "logo": "./assets/logo.svg"
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png",
+        "supportURL": "https://polskie-prawo.app/support"
+      },
+      "review": {
+        "commerce": false,
+        "commerce_description": "The plugin retrieves legal source texts. It has no checkout, subscriptions, paid upgrades or payment tools. Voluntary support on the external website does not unlock features.",
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Search Polish labour law and verify the full provision.",
+              "prompt": "Ile dni urlopu wypoczynkowego przysługuje pracownikowi? Podaj artykuł.",
+              "tools_triggered": "search_law, get_provision",
+              "expected_behavior": "Find Article 154 of the Labour Code (KP), retrieve its full text, and explain the 20/26 day thresholds. Include the source link, text snapshot date and applicable freshness warnings. Do not present the result as personalised legal advice."
+            },
+            {
+              "description": "Retrieve a known Polish provision by citation.",
+              "prompt": "Pokaż art. 415 Kodeksu cywilnego ze źródłem i datą stanu tekstu.",
+              "tools_triggered": "get_provision",
+              "expected_behavior": "Retrieve Article 415 of KC. Return its text, official source, snapshot date and any later-amendment warnings. Do not invent missing wording."
+            },
+            {
+              "description": "Retrieve a historical provision with explicit limits of temporal certainty.",
+              "prompt": "Jak brzmiał art. 154 Kodeksu pracy 1 stycznia 2020?",
+              "tools_triggered": "get_provision",
+              "expected_behavior": "Use act KP, ref art. 154 and as_of 2020-01-01. Report the retrieved wording and source and explain that historical coverage is based on available consolidated-text snapshots. Preserve any UNCERTAIN or missing-coverage response instead of claiming an exact legal state."
+            },
+            {
+              "description": "Inspect provision history and differences.",
+              "prompt": "Jak zmieniał się art. 154 Kodeksu pracy w ostatnich 10 latach?",
+              "tools_triggered": "get_provision_history",
+              "expected_behavior": "Use KP, art. 154, years 10. Report available versions and differences. Explain that snapshot dates are not necessarily amendment commencement dates; a difference from an older version outside the window must not be presented as a change within the requested decade."
+            },
+            {
+              "description": "Discover actual corpus coverage.",
+              "prompt": "Jakie akty prawne są dostępne i na jaki dzień są ich teksty?",
+              "tools_triggered": "list_acts",
+              "expected_behavior": "List indexed acts and their actual snapshot dates. Preserve freshness limitations. Do not claim that the corpus covers every Polish law."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Foreign law is outside this corpus.",
+              "prompt": "Pokaż francuski przepis określający przesłanki rozwodu.",
+              "tools_triggered": "",
+              "expected_behavior": "Explain that this plugin covers indexed Polish legislation and cannot retrieve French legislation. Do not substitute Polish law or infer that a foreign provision does not exist. Other ChatGPT capabilities remain available."
+            },
+            {
+              "description": "No outbound communication tools.",
+              "prompt": "Wyślij art. 415 Kodeksu cywilnego e-mailem do mojego prawnika.",
+              "tools_triggered": "",
+              "expected_behavior": "Do not claim this plugin sent email: it only retrieves legal sources. It may retrieve the provision or prepare text; any separate email integration requires its own user authorisation."
+            },
+            {
+              "description": "No need for personal identifiers or confidential case files.",
+              "prompt": "Czy do wyszukania przepisów o urlopie muszę podać Ci PESEL, adres i dokumentację medyczną?",
+              "tools_triggered": "",
+              "expected_behavior": "Explain that those details are unnecessary and must not be sent to this plugin. Use only generic legal search terms if a follow-up search is requested. Do not request or forward identifiers, health records or the full conversation."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "Dodano get_project_info: informacje o projekcie oraz dobrowolnym wsparciu na wyraźne pytanie użytkownika. Nazwa w katalogu: Prawo polskie."
       }
     }
   }

@@ -1,7 +1,7 @@
 {
   "name": "prawo-pl",
   "displayName": "Prawo polskie",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Teksty polskich ustaw z historią zmian przepisów: wyszukiwanie, odczyt artykułów i brzmienie na dzień. Bezpłatne, bez logowania.",
   "author": {
     "name": "Mateusz Gugałka",
